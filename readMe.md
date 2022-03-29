@@ -1,8 +1,8 @@
-# Project Name
+# My First Fighting Game
 
 <!-- > Outline a brief description of your project. -->
 
-> Live demo [![CodePen](https://img.shields.io/badge/-Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/montescodes/full/PoEoJOP). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [![CodePen](https://img.shields.io/badge/-Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/montescodes/full/NWXgqgQ). <!-- If you have the project hosted somewhere, include the link here. -->
 
 <!-- > To view all of my Live Demos [_Click here_](https://codepen.io/montescodes). -->
 
@@ -30,6 +30,8 @@
 - Why did you undertake it? -->
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
+Here I learned how to code my very first fighting game with JavaScript and HTML canvas. I was shown how to start by coding some basic fighting game mechanics, then I was shown how to take things to the next level by adding in professional sprite sheets and graphics.
+
 ## Technologies Used
 
 <!-- - Tech 1 - version 1.0
@@ -40,7 +42,7 @@
 ![CSS](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?logo=bootstrap&logoColor=white&style=for-the-badge)
+<!-- ![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?logo=bootstrap&logoColor=white&style=for-the-badge) -->
 
 ## Features
 
@@ -92,7 +94,7 @@ To do:
 Give credit too.
 
 - This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
+- This project was based on [this tutorial](https://www.youtube.com/watch?v=vyqbNFMDRGQ&t=222s).
 - Many thanks to...
 
 ## Contact
