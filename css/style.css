@@ -1,11 +1,32 @@
-/* HEADER */
-
-/* SIDE BAR */
-
-/* CONTENT */
-
-/* FOOTER */
-
-/* FORMS */
-
-/* GENERAL GUBBINS */
+* {
+  box-sizing: border-box;
+}
+#redContainer {
+  position: relative;
+  display: inline-block;
+}
+#smallerRedContainer {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+}
+#playerHealth {
+  background-color: yellow;
+  height: 30px;
+  /* width: 462px; */
+  width: 100%;
+}
+#timer {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+#enemyHealth {
+  background-color: yellow;
+  height: 30px;
+  /* width: 462px; */
+  width: 100%;
+}
