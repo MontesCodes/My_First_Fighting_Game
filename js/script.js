@@ -29,6 +29,7 @@ class Sprite {
     };
     this.color = color;
     this.isAttacking;
+    this.health = 100;
   }
 
   draw() {
@@ -164,6 +165,8 @@ function animate() {
     player.isAttacking
   ) {
     player.isAttacking = false;
+    player2.health -= 20;
+    document.querySelector('#player2Health').style.width = player2.health + '%';
     console.log('player_Collision');
   }
 
@@ -175,6 +178,8 @@ function animate() {
     player2.isAttacking
   ) {
     player2.isAttacking = false;
+    player.health -= 20;
+    document.querySelector('#player1Health').style.width = player.health + '%';
     console.log('player2_Collision');
   }
 }

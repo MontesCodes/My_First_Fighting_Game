@@ -12,10 +12,26 @@
   align-items: center;
   padding: 20px;
 }
-#playerHealth {
-  background-color: yellow;
+#player1Health2 {
+  position: relative;
   height: 30px;
   /* width: 462px; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+#player1Health3 {
+  background-color: yellow;
+  height: 30px;
+  width: 100%;
+}
+
+#player1Health {
+  position: absolute;
+  background: blue;
+  top: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
 }
 #timer {
@@ -24,9 +40,22 @@
   height: 100px;
   flex-shrink: 0;
 }
-#enemyHealth {
-  background-color: yellow;
+#player2Health2 {
+  position: relative;
   height: 30px;
   /* width: 462px; */
   width: 100%;
+}
+#player2Health3 {
+  background-color: yellow;
+  height: 30px;
+}
+
+#player2Health {
+  position: absolute;
+  background: blue;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
