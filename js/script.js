@@ -131,32 +131,34 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
     rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
   );
 }
-
+/// Timer Decreasing
+let timer = 10;
+function decreaseTimer() {
+  setTimeout(decreaseTimer, 1000);
+  if (timer > 0) timer--;
+}
+/// Animation for my players
 function animate() {
   window.requestAnimationFrame(animate);
   canvasContext.fillStyle = 'black';
   canvasContext.fillRect(0, 0, canvas.width, canvas.height);
   player.update();
   player2.update();
-
   player.velocity.x = 0;
   player2.velocity.x = 0;
-
-  // player movement
+  /// player movement
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5;
   }
-
-  // player2 Movement
+  /// player2 Movement
   if (keys.ArrowLeft.pressed && player2.lastKey === 'ArrowLeft') {
     player2.velocity.x = -5;
   } else if (keys.ArrowRight.pressed && player2.lastKey === 'ArrowRight') {
     player2.velocity.x = 5;
   }
-
-  // Detect for Collision
+  /// Detect for Collision onto player 2
   if (
     rectangularCollision({
       rectangle1: player,
@@ -169,7 +171,7 @@ function animate() {
     document.querySelector('#player2Health').style.width = player2.health + '%';
     console.log('player_Collision');
   }
-
+  /// Detect for Collision onto player 1
   if (
     rectangularCollision({
       rectangle1: player2,
@@ -183,12 +185,12 @@ function animate() {
     console.log('player2_Collision');
   }
 }
-
 animate();
 
 window.addEventListener('keydown', event => {
   // console.log(event.key);
   switch (event.key) {
+    ///Player 1 key stroke movement
     case 'd':
       keys.d.pressed = true;
       player.lastKey = 'd';
@@ -203,6 +205,7 @@ window.addEventListener('keydown', event => {
     case ' ':
       player.attack();
       break;
+    ///Player 2 key stroke movement
     case 'ArrowRight':
       keys.ArrowRight.pressed = true;
       player2.lastKey = 'ArrowRight';
@@ -220,6 +223,7 @@ window.addEventListener('keydown', event => {
   }
   // console.log(event.key);
 });
+///Player 1 key stroke movement - Player 1 keyUp
 window.addEventListener('keyup', event => {
   switch (event.key) {
     case 'd':
@@ -230,7 +234,7 @@ window.addEventListener('keyup', event => {
       break;
   }
 
-  // player2 keyup
+  ///Player 2 key stroke movement - Player 2 keyUp
   switch (event.key) {
     case 'ArrowRight':
       keys.ArrowRight.pressed = false;
