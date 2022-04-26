@@ -40,7 +40,7 @@ class Sprite {
       this.width,
       this.height,
     );
-    // attack box is draw
+    /// attack box is draw
     if (this.isAttacking) {
       canvasContext.fillStyle = 'green';
       canvasContext.fillRect(
@@ -136,7 +136,12 @@ let timer = 10;
 function decreaseTimer() {
   setTimeout(decreaseTimer, 1000);
   if (timer > 0) timer--;
+  document.querySelector('#timer').innerHTML = timer;
+  if (player.health === player2.health) {
+    console.log(tie);
+  }
 }
+decreaseTimer();
 /// Animation for my players
 function animate() {
   window.requestAnimationFrame(animate);

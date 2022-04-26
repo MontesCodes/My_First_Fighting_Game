@@ -43,6 +43,12 @@
   align-items: center;
   justify-content: center;
 }
+#tie {
+  position: absolute;
+  color: #fff;
+  display: flex;
+  align
+}
 #player2Health2 {
   position: relative;
   height: 30px;
