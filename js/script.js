@@ -131,14 +131,31 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
     rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
   );
 }
-/// Timer Decreasing
-let timer = 10;
-function decreaseTimer() {
-  setTimeout(decreaseTimer, 1000);
-  if (timer > 0) timer--;
-  document.querySelector('#timer').innerHTML = timer;
+function determineWinner({ player, player2, timerId }) {
+  clearTimeout(timerId);
+  document.querySelector('#tie-displayText').style.display = 'flex';
   if (player.health === player2.health) {
-    console.log(tie);
+    document.querySelector('#tie-displayText').innerHTML = 'Tie';
+  } else if (player.health > player2.health) {
+    document.querySelector('#tie-displayText').innerHTML = 'Player 1 Wins';
+  } else if (player.health < player2.health) {
+    document.querySelector('#tie-displayText').innerHTML = 'Player 2 Wins';
+  }
+}
+
+/// Timer Decreasing
+let timer = 60;
+let timerId;
+function decreaseTimer() {
+  if (timer > 0) {
+    timerId = setTimeout(decreaseTimer, 1000);
+    timer--;
+    document.querySelector('#timer').innerHTML = timer;
+  }
+  /// Tie match indicator
+
+  if (timer === 0) {
+    determineWinner({ player, player2, timerId });
   }
 }
 decreaseTimer();
@@ -188,6 +205,10 @@ function animate() {
     player.health -= 20;
     document.querySelector('#player1Health').style.width = player.health + '%';
     console.log('player2_Collision');
+  }
+  /// End Game based on Health
+  if (player2.health <= 0 || player.health <= 0) {
+    determineWinner({ player, player2, timerId });
   }
 }
 animate();
