@@ -38,13 +38,16 @@ const player = new Fighter({
     x: 0,
     y: 0,
   },
-  color: 'red',
   offset: {
     x: 0,
     y: 0,
-    imageSrc: './img/samuraiMack/Idle.png',
-    framesMax: 8,
-    scale: 2.75,
+  },
+  imageSrc: './img/samuraiMack/Idle.png',
+  framesMax: 8,
+  scale: 2.75,
+  offset: {
+    x: 215,
+    y: 185,
   },
 });
 // player.draw();
@@ -91,7 +94,7 @@ function animate() {
   background.update();
   shop.update();
   player.update();
-  player2.update();
+  // player2.update();
   player.velocity.x = 0;
   player2.velocity.x = 0;
   /// player movement
