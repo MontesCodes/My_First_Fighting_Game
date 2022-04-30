@@ -49,6 +49,17 @@ const player = new Fighter({
     x: 215,
     y: 185,
   },
+  sprites: {
+    idle: {
+      imageSrc: './img/samuraiMack/Idle.png',
+      framesMax: 8,
+    },
+    run: {
+      imageSrc: './img/samuraiMack/Run.png',
+      framesMax: 8,
+      image: new Image(),
+    },
+  },
 });
 // player.draw();
 
