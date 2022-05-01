@@ -66,6 +66,18 @@ const player = new Fighter({
       imageSrc: './img/samuraiMack/Fall.png',
       framesMax: 2,
     },
+    attack1: {
+      imageSrc: './img/samuraiMack/Attack1.png',
+      framesMax: 6,
+    },
+  },
+  attackBox: {
+    offset: {
+      x: 0,
+      y: 0,
+    },
+    width: 100,
+    height: 50,
   },
 });
 // player.draw();
@@ -83,6 +95,43 @@ const player2 = new Fighter({
   offset: {
     x: -50,
     y: 0,
+  },
+  imageSrc: './img/kenji/Idle.png',
+  framesMax: 4,
+  scale: 2.75,
+  offset: {
+    x: 215,
+    y: 200,
+  },
+  sprites: {
+    idle: {
+      imageSrc: './img/kenji/Idle.png',
+      framesMax: 4,
+    },
+    run: {
+      imageSrc: './img/kenji/Run.png',
+      framesMax: 8,
+    },
+    jump: {
+      imageSrc: './img/kenji/Jump.png',
+      framesMax: 2,
+    },
+    fall: {
+      imageSrc: './img/kenji/Fall.png',
+      framesMax: 2,
+    },
+    attack1: {
+      imageSrc: './img/kenji/Attack1.png',
+      framesMax: 4,
+    },
+  },
+  attackBox: {
+    offset: {
+      x: 0,
+      y: 0,
+    },
+    width: 100,
+    height: 50,
   },
 });
 // player2.draw();
@@ -104,6 +153,7 @@ const keys = {
 };
 
 decreaseTimer();
+
 /// Animation for my players
 function animate() {
   window.requestAnimationFrame(animate);
@@ -112,7 +162,7 @@ function animate() {
   background.update();
   shop.update();
   player.update();
-  // player2.update();
+  player2.update();
   player.velocity.x = 0;
   player2.velocity.x = 0;
   /// player movement
@@ -136,8 +186,19 @@ function animate() {
   /// player2 Movement
   if (keys.ArrowLeft.pressed && player2.lastKey === 'ArrowLeft') {
     player2.velocity.x = -5;
+    player2.switchSprite('run');
   } else if (keys.ArrowRight.pressed && player2.lastKey === 'ArrowRight') {
     player2.velocity.x = 5;
+    player2.switchSprite('run');
+  } else {
+    player2.switchSprite('idle');
+  }
+
+  ///player2 Jumping
+  if (player2.velocity.y < 0) {
+    player2.switchSprite('jump');
+  } else if (player2.velocity.y > 0) {
+    player2.switchSprite('jump');
   }
   /// Detect for Collision onto player 2
   if (
