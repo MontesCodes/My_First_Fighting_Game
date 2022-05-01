@@ -73,10 +73,10 @@ const player = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 0,
-      y: 0,
+      x: 135,
+      y: 50,
     },
-    width: 100,
+    width: 160,
     height: 50,
   },
 });
@@ -127,10 +127,10 @@ const player2 = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 0,
-      y: 0,
+      x: -160,
+      y: 50,
     },
-    width: 100,
+    width: 160,
     height: 50,
   },
 });
@@ -206,7 +206,8 @@ function animate() {
       rectangle1: player,
       rectangle2: player2,
     }) &&
-    player.isAttacking
+    player.isAttacking &&
+    player.framesCurrent === 4
   ) {
     player.isAttacking = false;
     player2.health -= 20;
