@@ -70,10 +70,14 @@ const player = new Fighter({
       imageSrc: './img/samuraiMack/Attack1.png',
       framesMax: 6,
     },
+    takeHit: {
+      imageSrc: './img/samuraiMack/Take Hit.png',
+      framesMax: 4,
+    },
   },
   attackBox: {
     offset: {
-      x: 135,
+      x: 143,
       y: 50,
     },
     width: 160,
@@ -124,13 +128,17 @@ const player2 = new Fighter({
       imageSrc: './img/kenji/Attack1.png',
       framesMax: 4,
     },
+    takeHit: {
+      imageSrc: './img/kenji/Take hit.png',
+      framesMax: 3,
+    },
   },
   attackBox: {
     offset: {
-      x: -160,
+      x: -165,
       y: 50,
     },
-    width: 160,
+    width: 165,
     height: 50,
   },
 });
@@ -183,6 +191,7 @@ function animate() {
   } else if (player.velocity.y > 0) {
     player.switchSprite('jump');
   }
+
   /// player2 Movement
   if (keys.ArrowLeft.pressed && player2.lastKey === 'ArrowLeft') {
     player2.velocity.x = -5;
@@ -200,6 +209,7 @@ function animate() {
   } else if (player2.velocity.y > 0) {
     player2.switchSprite('jump');
   }
+
   /// Detect for Collision onto player 2
   if (
     rectangularCollision({
@@ -209,24 +219,38 @@ function animate() {
     player.isAttacking &&
     player.framesCurrent === 4
   ) {
+    player2.takeHit();
     player.isAttacking = false;
-    player2.health -= 20;
+
     document.querySelector('#player2Health').style.width = player2.health + '%';
     console.log('player_Collision');
   }
+
+  /// if player misses
+  if (player.isAttacking && player.framesCurrent === 4) {
+    player.isAttacking = false;
+  }
+
   /// Detect for Collision onto player 1
   if (
     rectangularCollision({
       rectangle1: player2,
       rectangle2: player,
     }) &&
-    player2.isAttacking
+    player2.isAttacking &&
+    player2.framesCurrent === 2
   ) {
     player2.isAttacking = false;
     player.health -= 20;
     document.querySelector('#player1Health').style.width = player.health + '%';
     console.log('player2_Collision');
   }
+
+  /// if player2 misses
+  if (player2.isAttacking && player2.framesCurrent === 2) {
+    player2.isAttacking = false;
+  }
+
   /// End Game based on Health
   if (player2.health <= 0 || player.health <= 0) {
     determineWinner({ player, player2, timerId });
