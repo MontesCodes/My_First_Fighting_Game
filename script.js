@@ -71,7 +71,7 @@ const player = new Fighter({
       framesMax: 6,
     },
     takeHit: {
-      imageSrc: './img/samuraiMack/Take Hit.png',
+      imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
       framesMax: 4,
     },
   },
@@ -240,8 +240,9 @@ function animate() {
     player2.isAttacking &&
     player2.framesCurrent === 2
   ) {
+    player.takeHit();
     player2.isAttacking = false;
-    player.health -= 20;
+
     document.querySelector('#player1Health').style.width = player.health + '%';
     console.log('player2_Collision');
   }
