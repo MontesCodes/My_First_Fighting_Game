@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
 }
 #redContainer {
   position: relative;
@@ -12,36 +13,39 @@
   align-items: center;
   padding: 20px;
 }
-#player1Health2 {
+#player1Health {
   position: relative;
-  height: 30px;
-  /* width: 462px; */
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  border-top: 4px solid whitesmoke;
+  border-left: 4px solid whitesmoke;
+  border-bottom: 4px solid whitesmoke;
 }
-#player1Health3 {
-  background-color: yellow;
+#player1HealthBar1 {
+  background-color: red;
   height: 30px;
   width: 100%;
 }
 
-#player1Health {
+#player1HealthBar2 {
   position: absolute;
-  background: blue;
+  background: #818cf8;
   top: 0;
   right: 0;
   bottom: 0;
   width: 100%;
 }
 #timer {
-  background-color: red;
+  background-color: black;
   width: 100px;
-  height: 100px;
+  height: 50px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: whitesmoke;
+  border: 4.5px solid white;
 }
 #tie-displayText {
   position: absolute;
@@ -55,20 +59,21 @@
   left: 0;
   display: none;
 }
-#player2Health2 {
+#player2Health {
   position: relative;
-  height: 30px;
-  /* width: 462px; */
   width: 100%;
+  border-top: 4px solid whitesmoke;
+  border-right: 4px solid whitesmoke;
+  border-bottom: 4px solid whitesmoke;
 }
-#player2Health3 {
-  background-color: yellow;
+#player2HealthBar1 {
+  background-color: red;
   height: 30px;
 }
 
-#player2Health {
+#player2HealthBar2 {
   position: absolute;
-  background: blue;
+  background: #818cf8;
   top: 0;
   right: 0;
   bottom: 0;

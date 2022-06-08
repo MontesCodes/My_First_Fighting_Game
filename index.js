@@ -177,6 +177,8 @@ function animate() {
   canvasContext.fillRect(0, 0, canvas.width, canvas.height);
   background.update();
   shop.update();
+  canvasContext.fillStyle = 'rgba(255, 255, 255, 0.15)';
+  canvasContext.fillRect(0, 0, canvas.width, canvas.height);
   player.update();
   player2.update();
   player.velocity.x = 0;
@@ -230,7 +232,8 @@ function animate() {
     player2.takeHit();
     player.isAttacking = false;
 
-    document.querySelector('#player2Health').style.width = player2.health + '%';
+    document.querySelector('#player2HealthBar2').style.width =
+      player2.health + '%';
     console.log('player_Collision');
   }
 
@@ -251,7 +254,8 @@ function animate() {
     player.takeHit();
     player2.isAttacking = false;
 
-    document.querySelector('#player1Health').style.width = player.health + '%';
+    document.querySelector('#player1HealthBar2').style.width =
+      player.health + '%';
     console.log('player2_Collision');
   }
 

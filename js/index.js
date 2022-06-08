@@ -116,7 +116,8 @@ function animate() {
   ) {
     player.isAttacking = false;
     player2.health -= 20;
-    document.querySelector('#player2Health').style.width = player2.health + '%';
+    document.querySelector('#player2HealthBar1').style.width =
+      player2.health + '%';
     console.log('player_Collision');
   }
   /// Detect for Collision onto player 1
@@ -129,7 +130,8 @@ function animate() {
   ) {
     player2.isAttacking = false;
     player.health -= 20;
-    document.querySelector('#player1Health').style.width = player.health + '%';
+    document.querySelector('#player1HealthBar2').style.width =
+      player.health + '%';
     console.log('player2_Collision');
   }
   /// End Game based on Health
