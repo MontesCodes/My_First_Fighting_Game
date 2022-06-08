@@ -232,9 +232,9 @@ function animate() {
     player2.takeHit();
     player.isAttacking = false;
 
-    document.querySelector('#player2HealthBar2').style.width =
-      player2.health + '%';
-    console.log('player_Collision');
+    gsap.to('#player2HealthBar2', {
+      width: player2.health + '%',
+    });
   }
 
   /// if player misses
@@ -254,9 +254,9 @@ function animate() {
     player.takeHit();
     player2.isAttacking = false;
 
-    document.querySelector('#player1HealthBar2').style.width =
-      player.health + '%';
-    console.log('player2_Collision');
+    gsap.to('#player1HealthBar2', {
+      width: player.health + '%',
+    });
   }
 
   /// if player2 misses
