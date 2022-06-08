@@ -74,6 +74,10 @@ const player = new Fighter({
       imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
       framesMax: 4,
     },
+    death: {
+      imageSrc: './img/samuraiMack/Death.png',
+      framesMax: 6,
+    },
   },
   attackBox: {
     offset: {
@@ -131,6 +135,10 @@ const player2 = new Fighter({
     takeHit: {
       imageSrc: './img/kenji/Take hit.png',
       framesMax: 3,
+    },
+    death: {
+      imageSrc: './img/kenji/Death.png',
+      framesMax: 7,
     },
   },
   attackBox: {
@@ -260,38 +268,44 @@ function animate() {
 animate();
 
 window.addEventListener('keydown', event => {
-  // console.log(event.key);
-  switch (event.key) {
-    ///Player 1 key stroke movement
-    case 'd':
-      keys.d.pressed = true;
-      player.lastKey = 'd';
-      break;
-    case 'a':
-      keys.a.pressed = true;
-      player.lastKey = 'a';
-      break;
-    case 'w':
-      player.velocity.y = -20;
-      break;
-    case ' ':
-      player.attack();
-      break;
-    ///Player 2 key stroke movement
-    case 'ArrowRight':
-      keys.ArrowRight.pressed = true;
-      player2.lastKey = 'ArrowRight';
-      break;
-    case 'ArrowLeft':
-      keys.ArrowLeft.pressed = true;
-      player2.lastKey = 'ArrowLeft';
-      break;
-    case 'ArrowUp':
-      player2.velocity.y = -20;
-      break;
-    case 'ArrowDown':
-      player2.attack();
-      break;
+  if (!player.dead) {
+    switch (event.key) {
+      ///Player 1 key stroke movement
+      case 'd':
+        keys.d.pressed = true;
+        player.lastKey = 'd';
+        break;
+      case 'a':
+        keys.a.pressed = true;
+        player.lastKey = 'a';
+        break;
+      case 'w':
+        player.velocity.y = -20;
+        break;
+      case ' ':
+        player.attack();
+        break;
+
+      ///Player 2 key stroke movement
+    }
+  }
+  if (!player2.dead) {
+    switch (event.key) {
+      case 'ArrowRight':
+        keys.ArrowRight.pressed = true;
+        player2.lastKey = 'ArrowRight';
+        break;
+      case 'ArrowLeft':
+        keys.ArrowLeft.pressed = true;
+        player2.lastKey = 'ArrowLeft';
+        break;
+      case 'ArrowUp':
+        player2.velocity.y = -20;
+        break;
+      case 'ArrowDown':
+        player2.attack();
+        break;
+    }
   }
   // console.log(event.key);
 });
